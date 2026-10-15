@@ -1,6 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 export default function OrganisatorPage() {
+  useEffect(() => {
+    const paid = localStorage.getItem("zeitreise_paid");
+    if (!paid) {
+      window.location.href = "/register";
+    }
+  }, []);
+        const [fotos, setFotos] = useState...
   const [email, setEmail] = useState("");
   const [projectName, setProjectName] = useState("");
   const [loading, setLoading] = useState(false);
